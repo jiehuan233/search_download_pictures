@@ -19,7 +19,6 @@ def file_search(path,repat='.*'):
             a=re.findall(repat,file.lower())
             if a:
                 files_match+=a
-        print('找到{0}个文件'.format(len(files_match)))
         return files_match
 
 def fastmd5(file_path,split_piece=256,get_front_bytes=8):
@@ -57,7 +56,6 @@ def find_duplicate_file(fp_arr):
         for k in d:
             if len(d[k])>1:
                 ll.append(d[k])
-    print('查重完毕，发现{0}处重复'.format(len(ll)))
     for i in ll:
         a=1
         while a<=len(i)-1:
@@ -66,7 +64,7 @@ def find_duplicate_file(fp_arr):
             a+=1
     return ll
 
-keywords=input()
+keywords=input("请输入关键词（英文）：")
 
 res=requests.get('https://unsplash.com/s/photos/'+keywords)
 
