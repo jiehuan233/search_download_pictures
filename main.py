@@ -80,6 +80,8 @@ for i in w:
     print(i.attrs['src'])
     da=i.attrs['src']
     f=requests.get(da)
+    if not os.path.isdir("picture"):
+        os.mkdir("picture")
     with open(("picture"+(os.sep)+str(n)+".jpg"),"wb+") as pic:
         pic.write(f.content)
     n+=1
